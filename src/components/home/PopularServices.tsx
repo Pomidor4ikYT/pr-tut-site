@@ -1,7 +1,7 @@
 import { servicesList } from '@/lib/constants';
 import Button from '@/components/ui/Button';
 
-const popularIndices = [0, 1, 3, 5]; // AI Маркетинг, SMM, SEO, Брендинг
+const popularIndices = [0, 1, 3, 5];
 
 export default function PopularServices() {
   const popular = servicesList.filter((_, idx) => popularIndices.includes(idx));
