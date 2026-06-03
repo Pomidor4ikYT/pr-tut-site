@@ -16,6 +16,7 @@ const navLinks = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-red/30">
       <div className="container-custom flex justify-between items-center py-4">
@@ -24,7 +25,13 @@ export default function Header() {
           {navLinks.map(link => <Link key={link.href} href={link.href} className="hover:text-red transition">{link.label}</Link>)}
         </nav>
         <div className="hidden md:block"><Button href="/contacts" variant="primary">Консультація</Button></div>
-        <button className="md:hidden text-white text-2xl" onClick={() => setMobileMenuOpen(true)}>☰</button>
+        <button
+          className="md:hidden text-white text-2xl focus:outline-none"
+          onClick={() => setMobileMenuOpen(true)}
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
       </div>
       <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} links={navLinks} />
     </header>
